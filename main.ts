@@ -12,18 +12,18 @@ const wrapAsync = (fn) => {
 }
 
 // @ts-ignore
-app.get('/', wrapAsync((req, res) => {
+app.get('/', (req, res) => {
     const dict = {
         name: '1',
         age: 12
     }
-    dbConnection.query('select runoob_id1  from runoob_tbl', (err, runoob) => {
+    dbConnection.query('select runoob_id  from runoob_tbl', (err, runoob) => {
         // if (err) throw err;
         console.log('dbConnection', err, runoob)
     })
     console.log('res', req.query);
     res.status(200).send(dict);
-}));
+});
 
 const test = () => {
     return Promise.reject('你试啥');

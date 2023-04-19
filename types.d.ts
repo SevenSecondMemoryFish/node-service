@@ -8,7 +8,7 @@ export declare interface ResponseBean extends express.Response{
 
 
 export declare interface RequestBean extends express.Request {
-    param(name: string, defaultValue: any): any
+    param(name: string, defaultValue?: any): any
     body?: any
     query?: any
 }

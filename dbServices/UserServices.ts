@@ -1,11 +1,13 @@
 import dbConnection from "../dbMysql/DbConnextion";
 interface UserBean {
+    id?: number
     username?: string
     phone?: string,
     password?: string,
     usericon?: string,
     address?: string
 }
+
 class UserDbServices {
 
     public getUser(id: number): Promise<UserBean> {
@@ -20,6 +22,13 @@ class UserDbServices {
         const query = 'INSERT INTO db_user set ?'
         return dbConnection.queryPromise(query, user).then((result) => {
             return Promise.resolve(result['insertId'])
+        })
+    }
+
+    public updateUser(id: number, user: UserBean) {
+        const query = `update db_user set ? where id = ${id}`;
+        return dbConnection.queryPromise(query, user).then(result => {
+            return Promise.resolve(result);
         })
     }
 }

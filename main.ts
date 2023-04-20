@@ -18,7 +18,7 @@ app.use(router);
 app.use( function (err, req, res, next) {
     console.log("Express", err);
     res.status(500);
-    res.send('500');
+    res.send({code: 500, message: err});
 })
 app.listen(8081);
 

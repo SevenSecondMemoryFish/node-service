@@ -1,4 +1,4 @@
-import { ResponseBean, RequestBean } from "../types";
+import { RequestBean } from "../types";
 import userDbServices from '../dbServices/UserServices'
 import { ResponseParamBean } from '../config/PromptUtils';
 

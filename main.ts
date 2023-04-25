@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 const app = express();
 import userRouter from "./router/User.router";
+import feLocationRouter from './router/FeLocation.router'
 // @ts-ignore
 const wrapAsync = (fn) => {
     // @ts-ignore
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const router = Router({});
 userRouter(router);
+feLocationRouter(router);
 app.use(router);
 // @ts-ignore
 app.use( function (err, req, res, next) {
